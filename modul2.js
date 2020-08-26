@@ -1,15 +1,18 @@
-function pathFindingAlgoritam(niz){
+function pathFindingAlgoritam(niz, najkraciPutNiz){
     let prekid=0;
     let nizIstrazenih=[]
-    let najkraciPutNiz=[]
+    //let najkraciPutNiz=[]
 for(let i=0;i<niz.length;i++){
     if((niz[i].istrazen==true)||(niz[i].pocetak==true)){
         nizIstrazenih.push(niz[i])
     }
     if(niz[i].cilj==true&&niz[i].istrazen==true){
+        if(niz[i].najkraci==false){
                niz[i].najkraci=true;
                najkraciPutNiz.push(niz[i]);
-        
+        }
+                console.log('gornji if');
+                console.log(najkraciPutNiz.length);
                prekid=1;
     }
 }/////prvi for (nezavisan)
@@ -34,21 +37,22 @@ for(let i=0;i<nizIstrazenih.length;i++){
 }///////drugi for koji trazi i dodeljuje statuse
 }///if za prekid
 else{
+    console.log('elseeeeee');
 for(let i=0;i<niz.length;i++){
+   
    for(let j=0;j<najkraciPutNiz.length;j++){
                 
-       if(niz[i].oznaka==najkraciPutNiz[j].roditelj){
-
+       if(niz[i].oznaka==najkraciPutNiz[j].roditelj&&niz[i].najkraci==false){
+        console.log('ifffffffffff'+ najkraciPutNiz[j].oznaka);
            niz[i].najkraci=true;
            najkraciPutNiz.push(niz[i])
-           console.log(najkraciPutNiz[j].roditelj);
-           console.log(niz[i].oznaka); 
+  
        }
    }
 
 }/////for za najkraci puts
 }/////else
-return prekid;
+return najkraciPutNiz;      
 }/////kraj
 
 

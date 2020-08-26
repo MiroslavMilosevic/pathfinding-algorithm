@@ -32,14 +32,20 @@ function repaint(visina, sirina, niz){
             let kocka=document.createElement('div')
             kocka.className='kocke';
             kocka.id=idKocke;
+            // kocka.innerText=idKocke
+            // kocka.setAttribute('style','color:white')
             if(niz[idKocke].pocetak==true){
                 kocka.className='pocetak';
-            }else if(niz[idKocke].pocetak==false&&niz[idKocke].istrazen==true&&niz[idKocke].cilj==false&&niz[idKocke].prepreka==false){
-                kocka.className='istrazen';
-            }else if(niz[idKocke].pocetak==false&&niz[idKocke].cilj==true&&niz[idKocke].prepreka==false){
+            }else if(niz[idKocke].cilj==true){
                 kocka.className='cilj';
-            }else if(niz[idKocke].prepreka==true){
+            }else if(niz[idKocke].pocetak==false&&niz[idKocke].istrazen==true&&niz[idKocke].cilj==false&&niz[idKocke].prepreka==false&&niz[idKocke].najkraci==false){
+                kocka.className='istrazen';
+            }else if(niz[idKocke].pocetak==false&&niz[idKocke].cilj==true&&niz[idKocke].prepreka==false&&niz[idKocke].najkraci==false){
+                kocka.className='cilj';
+            }else if(niz[idKocke].prepreka==true&&niz[idKocke].najkraci==false){
                 kocka.className='prepreka';
+            }else if(niz[idKocke].najkraci==true){
+                 kocka.className='najkraciPut'
             }
             idKocke++;
          

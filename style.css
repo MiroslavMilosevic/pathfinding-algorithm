@@ -78,3 +78,14 @@ background-color: rgba(168, 243, 93, 0.719);
     margin-left: 1px;
     margin-right: 1px; 
 }
+.najkraciPut{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width:20px;
+    height: 20px;
+    background-color: rgba(21, 143, 82, 0.877);
+    /* //margin-bottom: 1px; */
+    margin-left: 1px;
+    margin-right: 1px; 
+}
