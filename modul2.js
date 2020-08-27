@@ -32,8 +32,10 @@ for(let i=0;i<nizIstrazenih.length;i++){
           }
     
         }
+     
       }//if koji ucitava nove(mozda i najbitniji)
    }
+
 }///////drugi for koji trazi i dodeljuje statuse
 }///if za prekid
 else{
