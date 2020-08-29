@@ -1,35 +1,22 @@
 
-function nacrtajIDodajUListu(visina, sirina){
- let lista=[]    
-let container=document.getElementById('container');
-container.innerHTML='';
-let idKocke=0;
-for(let i=0;i<visina;i++){
-    for(let j=0;j<sirina;j++){
-    let kocka=document.createElement('div')
-    kocka.className='kocke';
-    kocka.id=idKocke;
-    idKocke++;
-    container.appendChild(kocka)
-    lista.push
-    ( { x:j*10, y:i*10, pocetak:false, istrazen:false, cilj:false, roditelj:-1, oznaka:idKocke-1, prepreka:false, najkraci:false} )
-    }
-    let br=document.createElement('br');
-        container.appendChild(br)
-
-}
-//console.log(lista);
-return lista
-}///kraj funkcije
-
-
-function repaint(visina, sirina, niz){
+function repaintSaListenerima(visina, sirina, niz, lisener){
     let container=document.getElementById('container');
     container.innerHTML='';
     let idKocke=0;
     for(let i=0;i<visina;i++){
         for(let j=0;j<sirina;j++){
+       console.log(idKocke+' ads');
             let kocka=document.createElement('div')
+            console.log(lisener);
+            if(lisener=='start'){
+                let br=idKocke;
+                kocka.addEventListener('click', function(){
+                    console.log(br);
+                    niz[br].pocetak=true;
+                    console.log('zoi');
+                    repaintSaListenerima(visina, sirina, niz, lisener)
+                })   
+            }
             kocka.className='kocke';
             kocka.id=idKocke;
             // kocka.innerText=idKocke
@@ -52,15 +39,10 @@ function repaint(visina, sirina, niz){
             container.appendChild(kocka)
 
         }
+     //   idKocke++;
         let br=document.createElement('br');
         container.appendChild(br)
     }
 }
 
-
-
-
-
-
-
-export { nacrtajIDodajUListu, repaint }
+export { repaintSaListenerima }
