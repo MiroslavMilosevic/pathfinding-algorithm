@@ -1,22 +1,25 @@
 import { nacrtajIDodajUListu, repaint } from './modul1.js'
 import { pathFindingAlgoritam} from './modul2.js'
-import {proveraVelicineTerena,isPocetakPostavljen} from  './modul3Provere.js'
+import {proveraVelicineTerena,isPocetakPostavljen, isCiljPostavljen} from  './modul3Provere.js'
 import {repaintSaListenerima} from  './modul4Klikovi.js'
 let visina=20;//staticke, sluze za dve funkcije
-let sirina=20;//staticke, sluze za dve funkcije
+let sirina=40;//staticke, sluze za dve funkcije
 let najkraciPutNiz1=[]//staticka
+let brojacZaStop=0;
+let timeout='';
 function glavna(najkraciPutNiz){
+  //    brojacZaStop=1;
        console.log('pokrenuta glavna funkcija sa algoritmom');
-    setTimeout(function(){
+    timeout = setTimeout(function(){
     pathFindingAlgoritam(niz, najkraciPutNiz)
     repaint(visina, sirina, niz)
     glavna(najkraciPutNiz);
-    },100)
+    },30)
     }
 
 let niz=nacrtajIDodajUListu(visina,sirina);
-// niz[15].pocetak=true;
-// niz[97].cilj=true;
+ niz[365].pocetak=true;
+ niz[395].cilj=true;
 //niz[117].prepreka=true;
 
 repaint(visina, sirina, niz)
@@ -44,15 +47,33 @@ dugmeVisinaSirina.addEventListener('click', function(){
        sirina=document.getElementById('sirina').value;
       if(proveraVelicineTerena(visina, sirina)){
       niz = nacrtajIDodajUListu(Number(visina), Number(sirina));
-      repaint(visina, sirina, niz)
+      
       }
 })
 
 let dugmezapokretanje=document.getElementById('dugmeZaPokretanje')
 dugmezapokretanje.innerText='Pokreni'
 dugmezapokretanje.addEventListener('click', function(){
-    if(isPocetakPostavljen(niz)){
+    if(isPocetakPostavljen(niz)&&isCiljPostavljen(niz)){
     glavna(najkraciPutNiz1)      
+    }else{
+        alert('pocetak ili cilj nisu postavljeni')
     }
+})
+let dugmeStop=document.getElementById('stop');
+dugmeStop.addEventListener('click',function(){
+    console.log('12345');
+  //  brojacZaStop=0;
+    clearTimeout(timeout)
+})
+let dugmeOcisti=document.getElementById('ocisti');
+dugmeOcisti.addEventListener('click', function(){
+
+        clearTimeout(timeout)
+        najkraciPutNiz1=[];
+        niz=nacrtajIDodajUListu(visina,sirina);
+        repaint(visina, sirina, niz);
+ 
+    console.log('djipur');
 })
 
