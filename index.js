@@ -1,30 +1,40 @@
 import { nacrtajIDodajUListu, repaint } from './modul1.js'
 import { pathFindingAlgoritam} from './modul2.js'
-import {proveraVelicineTerena} from  './modul3Provere.js'
+import {proveraVelicineTerena,isPocetakPostavljen} from  './modul3Provere.js'
 import {repaintSaListenerima} from  './modul4Klikovi.js'
 let visina=20;//staticke, sluze za dve funkcije
 let sirina=20;//staticke, sluze za dve funkcije
 let najkraciPutNiz1=[]//staticka
 function glavna(najkraciPutNiz){
-
+       console.log('pokrenuta glavna funkcija sa algoritmom');
     setTimeout(function(){
     pathFindingAlgoritam(niz, najkraciPutNiz)
     repaint(visina, sirina, niz)
     glavna(najkraciPutNiz);
-    },500)
+    },100)
     }
 
 let niz=nacrtajIDodajUListu(visina,sirina);
 // niz[15].pocetak=true;
 // niz[97].cilj=true;
 //niz[117].prepreka=true;
-//console.log(niz);
 
 repaint(visina, sirina, niz)
-let div111=document.getElementById('startDiv');
-div111.addEventListener('click', function(){
-    console.log('maja');
-    repaintSaListenerima(visina, sirina, niz, div111.title)
+let divStart=document.getElementById('startDiv');////////////pocetak postavljanja starta, cilja i prepreka
+divStart.addEventListener('click', function(){
+
+    repaint(visina, sirina, niz)
+    repaintSaListenerima(visina, sirina, niz, divStart.title)
+})
+let divCilj=document.getElementById('ciljDiv');
+divCilj.addEventListener('click', function(){
+    repaint(visina, sirina, niz)
+    repaintSaListenerima(visina, sirina, niz, divCilj.title)
+})
+let divPrepreka=document.getElementById('preprekaDiv');
+divPrepreka.addEventListener('click', function(){
+    repaint(visina, sirina, niz)
+    repaintSaListenerima(visina, sirina, niz, divPrepreka.title)
 })
 
 let dugmeVisinaSirina=document.getElementById('dugmeVS');
@@ -38,9 +48,11 @@ dugmeVisinaSirina.addEventListener('click', function(){
       }
 })
 
-
 let dugmezapokretanje=document.getElementById('dugmeZaPokretanje')
 dugmezapokretanje.innerText='Pokreni'
 dugmezapokretanje.addEventListener('click', function(){
-    glavna(najkraciPutNiz1)})
+    if(isPocetakPostavljen(niz)){
+    glavna(najkraciPutNiz1)      
+    }
+})
 

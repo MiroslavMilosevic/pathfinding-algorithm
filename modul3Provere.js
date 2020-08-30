@@ -5,7 +5,16 @@ function proveraVelicineTerena(visinaValue, sirinaValue){
          console.log('dhfkashkljdfas');
          return false;
      }
-
-
 }
-export {proveraVelicineTerena}
+function isPocetakPostavljen(niz){
+      for(let i=0;i<niz.length;i++){
+          if(niz[i].pocetak==true){
+              return true;
+          }
+      }
+      return false;
+}
+
+
+
+export {proveraVelicineTerena, isPocetakPostavljen}
