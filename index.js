@@ -1,19 +1,23 @@
-import { nacrtajIDodajUListu, repaint } from './modul1.js'
+import { nacrtajIDodajUListu, repaint, nacrtajIDodajUListuPrepreka } from './modul1.js'
 import { pathFindingAlgoritam} from './modul2.js'
-import {proveraVelicineTerena,isPocetakPostavljen, isCiljPostavljen} from  './modul3Provere.js'
+import {proveraVelicineTerena,isPocetakPostavljen, isCiljPostavljen, daLiJeCiljStart, veci} from  './modul3Provere.js'
 import {repaintSaListenerima} from  './modul4Klikovi.js'
+console.log( Math.floor(Math.random() * 2));
 let visina=20;//staticke, sluze za dve funkcije
 let sirina=40;//staticke, sluze za dve funkcije
 let najkraciPutNiz1=[]//staticka
 let brojacZaStop=0;
 let timeout='';
 function glavna(najkraciPutNiz){
-  //    brojacZaStop=1;
-       console.log('pokrenuta glavna funkcija sa algoritmom');
+
+    //   console.log('pokrenuta glavna funkcija sa algoritmom');
     timeout = setTimeout(function(){
-    pathFindingAlgoritam(niz, najkraciPutNiz)
+      
+    pathFindingAlgoritam(niz, najkraciPutNiz, )
     repaint(visina, sirina, niz)
+
     glavna(najkraciPutNiz);
+
     },30)
     }
 
@@ -25,9 +29,10 @@ let niz=nacrtajIDodajUListu(visina,sirina);
 repaint(visina, sirina, niz)
 let divStart=document.getElementById('startDiv');////////////pocetak postavljanja starta, cilja i prepreka
 divStart.addEventListener('click', function(){
-
+    
     repaint(visina, sirina, niz)
     repaintSaListenerima(visina, sirina, niz, divStart.title)
+  
 })
 let divCilj=document.getElementById('ciljDiv');
 divCilj.addEventListener('click', function(){
@@ -48,16 +53,17 @@ dugmeVisinaSirina.addEventListener('click', function(){
       if(proveraVelicineTerena(visina, sirina)){
       niz = nacrtajIDodajUListu(Number(visina), Number(sirina));
       
-      }
+      }else{ alert('uneta visina ili sirina nisu ispravne')}
 })
 
 let dugmezapokretanje=document.getElementById('dugmeZaPokretanje')
 dugmezapokretanje.innerText='Pokreni'
 dugmezapokretanje.addEventListener('click', function(){
-    if(isPocetakPostavljen(niz)&&isCiljPostavljen(niz)){
+    
+    if(isPocetakPostavljen(niz)&&isCiljPostavljen(niz)&& (!daLiJeCiljStart(niz))){
     glavna(najkraciPutNiz1)      
     }else{
-        alert('pocetak ili cilj nisu postavljeni')
+        alert('pocetak ili cilj nisu postavljeni ili su na istom mestu')
     }
 })
 let dugmeStop=document.getElementById('stop');
@@ -77,3 +83,10 @@ dugmeOcisti.addEventListener('click', function(){
     console.log('djipur');
 })
 
+let dugmeRandom=document.getElementById('random');
+dugmeRandom.addEventListener('click', function(){
+    clearTimeout(timeout)
+    najkraciPutNiz1=[];
+niz=nacrtajIDodajUListuPrepreka(visina, sirina);
+repaint(visina, sirina, niz);
+})

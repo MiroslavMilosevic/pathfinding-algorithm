@@ -12,7 +12,7 @@ background-color: rgba(54, 173, 194, 0.719);
 .container{
     /* margin-top:20%; */
     display: inline-block;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left:20%;
     margin-right:0%;
     padding-top: 3px;
@@ -87,24 +87,68 @@ background-color: rgba(54, 173, 194, 0.719);
     margin-left: 1px;
     margin-right: 1px; 
 }
-.divPod{
-width:100px;
-height:30px;
-text-align:center;
-margin: 20px;
+/* .divPod{
+width:5%;
+height:25%;
 color: blanchedalmond;
-
+} */
+button{
+    margin: 0px;
+    padding: 0px;
+    margin-right: 3px;
+    /* margin-left: 1%; */
 }
 #startDiv{
+    width: 7%;
+    height: 25%;
+    color: wheat;
     background-color: rgba(11, 9, 141, 0.815);
 }
 #ciljDiv{
+    width: 9%;
+    height: 25%;
+    color: wheat;
     background-color: rgba(83, 22, 22, 0.815);
 }
 #preprekaDiv{
-    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    height: 25%;
+    color: wheat;
     background-color: rgb(0, 0, 0);
 }
+#dugmeZaPokretanje{
+    width: 5%;
+    height: 25%;
+    color: whitesmoke;
+    background-color: green;
+}
+#stop{
+    width: 5%;
+    height: 25%;
+    color:black;
+    background-color:red
+}
+#ocisti{
+    width: 8%;
+    height: 25%;
+    color:black;
+    background-color: rgb(243, 98, 14);
+}
+#dugmeVS{
+    width: 10%;
+    height: 25%;
+    color:black;
+    background-color: khaki;
+}
+#random{
+    width: 10%;
+    height: 25%;
+    color:black;
+    background-color: rgb(181, 163, 189);
+}
+
 
 /* <div class="divPod" id="startDiv"></div>
 <div class="divPod" id="ciljDiv"></div>

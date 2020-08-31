@@ -1,10 +1,12 @@
 function pathFindingAlgoritam(niz, najkraciPutNiz){
     let prekid=0;
     let nizIstrazenih=[]
+   
     //let najkraciPutNiz=[]
 for(let i=0;i<niz.length;i++){
     if((niz[i].istrazen==true)||(niz[i].pocetak==true)){
         nizIstrazenih.push(niz[i])
+      
     }
     if(niz[i].cilj==true&&niz[i].istrazen==true){
         if(niz[i].najkraci==false){
@@ -13,7 +15,7 @@ for(let i=0;i<niz.length;i++){
         }
                 console.log('gornji if');
                 console.log(najkraciPutNiz.length);
-               prekid=1;
+                prekid=1;
     }
 }/////prvi for (nezavisan)
 
@@ -37,6 +39,7 @@ for(let i=0;i<nizIstrazenih.length;i++){
    }
 
 }///////drugi for koji trazi i dodeljuje statuse
+
 }///if za prekid
 else{
     console.log('elseeeeee');

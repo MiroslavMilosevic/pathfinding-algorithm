@@ -23,6 +23,19 @@ function isCiljPostavljen(niz){
     return false;
 }//////////////////////////////////////////////////////////////////////////
 
-
-
-export {proveraVelicineTerena, isPocetakPostavljen, isCiljPostavljen}
+function daLiJeCiljStart(niz){
+    for(let i=0;i<niz.length;i++){
+        if(niz[i].pocetak&&niz[i].cilj){
+            return true
+        }
+    }
+    return false
+}
+function veci (br1, br2){
+    if(br1>=br2){
+        return br1;
+    }else {
+        return br2;
+    }
+}
+export {proveraVelicineTerena, isPocetakPostavljen, isCiljPostavljen, daLiJeCiljStart, veci}
