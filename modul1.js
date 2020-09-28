@@ -58,7 +58,7 @@ function repaint(visina, sirina, niz){
 // let obj={ x:j*10, y:i*10, pocetak:false, istrazen:false, cilj:false, roditelj:-1, oznaka:idKocke-1, prepreka:false, najkraci:false} 
 // Math.floor(Math.random() * 3); 
 // lista.push(obj)
-function nacrtajIDodajUListuPrepreka(visina, sirina){
+function nacrtajIDodajUListuPrepreka(visina, sirina, gustina){
     let lista=[]    
    let container=document.getElementById('container');
    container.innerHTML='';
@@ -72,7 +72,7 @@ function nacrtajIDodajUListuPrepreka(visina, sirina){
        container.appendChild(kocka)
         let obj={ x:j*10, y:i*10, pocetak:false, istrazen:false, cilj:false, roditelj:-1, oznaka:idKocke-1, prepreka:false, najkraci:false} 
       let tf=[false,true, false]  
-      let r = tf[Math.floor(Math.random() * 3)]; 
+      let r = tf[Math.floor(Math.random() * gustina)]; 
       if(r){obj.prepreka=true
     }else{ obj.prepreka=false }
 

@@ -51,6 +51,7 @@ dugmeVisinaSirina.addEventListener('click', function(){
        visina=document.getElementById('visina').value;   
        sirina=document.getElementById('sirina').value;
       if(proveraVelicineTerena(visina, sirina)){
+        clearTimeout(timeout)
       niz = nacrtajIDodajUListu(Number(visina), Number(sirina));
       
       }else{ alert('uneta visina ili sirina nisu ispravne')}
@@ -87,6 +88,7 @@ let dugmeRandom=document.getElementById('random');
 dugmeRandom.addEventListener('click', function(){
     clearTimeout(timeout)
     najkraciPutNiz1=[];
-niz=nacrtajIDodajUListuPrepreka(visina, sirina);
+   
+niz=nacrtajIDodajUListuPrepreka(visina, sirina, Number(document.getElementById('range').value));
 repaint(visina, sirina, niz);
 })
