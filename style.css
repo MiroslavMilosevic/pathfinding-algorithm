@@ -153,3 +153,51 @@ button{
 /* <div class="divPod" id="startDiv"></div>
 <div class="divPod" id="ciljDiv"></div>
 <div class="divPod" id="preprekaDiv"></div> */
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1126px) {
+.container{
+    margin-left: 10%;
+}}
+@media only screen and (max-width: 998px) {
+    .container{
+        margin-left: 1%;
+}}
+@media only screen and (max-width: 908px) {
+ .kocke, .pocetak , .istrazen , .cilj, .prepreka , .najkraciPut{
+     width: 18px;
+     height: 18px;
+ }  
+}
+
+@media only screen and (max-width: 830px) {
+    .kocke, .pocetak , .istrazen , .cilj, .prepreka , .najkraciPut{
+        width: 16px;
+        height: 16px;
+    }  
+   }
+
+   @media only screen and (max-width: 746px) {
+    .kocke, .pocetak , .istrazen , .cilj, .prepreka , .najkraciPut{
+        width: 14px;
+        height: 14px;
+    }  
+   }
+
+   @media only screen and (max-width: 670px) {
+/* .container{
+    min-width:670px ;
+}  
+#podesavanja, #srednji{
+    min-width: 670px;
+} */
+body{
+    min-width: 670px;
+}
+   }
+   /* @media only screen and (max-width: 582px) {
+    .kocke, .pocetak , .istrazen , .cilj, .prepreka , .najkraciPut{
+        width: 10px;
+        height: 10px;
+    }  
+   } */
+
