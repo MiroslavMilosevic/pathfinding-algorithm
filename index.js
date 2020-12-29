@@ -46,7 +46,7 @@ divPrepreka.addEventListener('click', function(){
 })
 
 let dugmeVisinaSirina=document.getElementById('dugmeVS');
-dugmeVisinaSirina.innerText='Podesi velicinu terena'
+dugmeVisinaSirina.innerText='Resize terrain'
 dugmeVisinaSirina.addEventListener('click', function(){
        visina=document.getElementById('visina').value;   
        sirina=document.getElementById('sirina').value;
@@ -54,17 +54,17 @@ dugmeVisinaSirina.addEventListener('click', function(){
         clearTimeout(timeout)
       niz = nacrtajIDodajUListu(Number(visina), Number(sirina));
       
-      }else{ alert('uneta visina ili sirina nisu ispravne')}
+      }else{ alert('width or height values incorect')}
 })
 
 let dugmezapokretanje=document.getElementById('dugmeZaPokretanje')
-dugmezapokretanje.innerText='Pokreni'
+dugmezapokretanje.innerText='Start'
 dugmezapokretanje.addEventListener('click', function(){
     
     if(isPocetakPostavljen(niz)&&isCiljPostavljen(niz)&& (!daLiJeCiljStart(niz))){
     glavna(najkraciPutNiz1)      
     }else{
-        alert('pocetak ili cilj nisu postavljeni ili su na istom mestu')
+        alert('start or target point are not in selected')
     }
 })
 let dugmeStop=document.getElementById('stop');
